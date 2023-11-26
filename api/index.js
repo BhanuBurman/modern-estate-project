@@ -1,6 +1,10 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import userRouter from './routes/user.route.js';
+
 import dotenv from 'dotenv';
+
+
 dotenv.config(); // This resolves the error
 
 // We will get an error since we cannot use environment variables directly in the backend
@@ -15,3 +19,5 @@ const app = express();
 app.listen(3000,()=>{
     console.log('Server listening on port: 3000');
 })
+
+app.use("/api/user",userRouter);
